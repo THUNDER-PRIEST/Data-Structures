@@ -1,0 +1,93 @@
+//The below program demonstrates the different traversal's in tree:
+1. Preorder - root-left-right
+2. Postorder - left-right-root
+3. Inorder - left-root-right
+4. Levelorder - it traverse's the tree along level.(level - a layer representing all the child of parent.
+
+import java.util.*;
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
+class node
+{
+	int data;
+	node left;
+	node right;
+	
+	node(int n)
+	{
+		this.data = n;
+		this.left = null;
+		this.right = null;
+	}
+}
+public class s1
+{
+	static void preorder(node n1)
+	{
+		if(n1 == null)
+			return;
+		
+		
+		System.out.println(n1.data);
+		preorder(n1.left);
+	    preorder(n1.right);
+	}
+	static void postorder(node n1)
+	{
+		if(n1 == null)
+			return;
+		postorder(n1.left);
+		postorder(n1.right);
+		System.out.println(n1.data);
+	}
+	static void inorder(node n1)
+	{
+		if(n1 == null)
+			return;
+		inorder(n1.left);
+		System.out.println(n1.data);
+		inorder(n1.right);
+	}
+	static List<List<Integer>> levelorder(node n1) {
+        List<List<Integer>> l1 = new ArrayList<>();
+        test(n1, 0, l1);
+        return l1;
+    }
+    
+    static void test(node n1, int level, List<List<Integer>> l1) 
+	{
+        if (n1 == null) 
+		{
+            return;
+        }
+        if (level == l1.size()) 
+		{
+            l1.add(new ArrayList<>());
+        }
+        l1.get(level).add(n1.data);
+        test(n1.left, level + 1, l1);
+        test(n1.right, level + 1, l1);
+    }
+	public static void main(String args[])
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		node n1 = new node(1);
+		n1.left = new node(2);
+		n1.right = new node(3);
+		n1.left.left = new node(4);
+		n1.left.right = new node(5);
+		n1.right.left = new node(6);
+		n1.right.right = new node(7);
+		System.out.println("preorder traversal ");
+		preorder(n1);
+		System.out.println("postorder traversal ");
+		postorder(n1);
+		System.out.println("inorder traversal ");
+		inorder(n1);
+		System.out.println("level-order traversal ");
+		List<List<Integer>> l2 = new LinkedList<List<Integer>>();
+		l2 = levelorder(n1);
+		System.out.println(l2);
+	}
+}	
