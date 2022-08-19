@@ -1,0 +1,37 @@
+import java.util.*;
+//here this is a directed graph
+public class adjmatdirgraph
+{
+	static int matrix[][];
+	static int V;
+	
+	adjmatdirgraph(int v)
+	{
+		this.V = v;
+		matrix = new int[V][V];
+	}
+	
+	static void addedge(int a, int b)
+	{
+		matrix[a-1][b-1] = 1;
+	}
+	static void printgraph()
+	{
+		for(int i = 0; i < V; i++)
+		{
+			for(int j = 0; j < V; j++)
+			{
+				System.out.print(matrix[i][j]+ " ");
+			}
+			System.out.println();
+		}
+	}
+	public static void main(String args[])
+	{
+		adjmatdirgraph s1 = new adjmatdirgraph(5);
+		s1.addedge(1,2);
+		s1.addedge(2,3);
+		s1.addedge(3,4);
+		s1.printgraph();
+	}
+}
