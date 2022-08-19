@@ -1,0 +1,38 @@
+import java.util.*;
+//here this is a undirected graph
+public class adjmatgraph
+{
+	static int matrix[][];
+	static int V;
+	
+	adjmatgraph(int v)
+	{
+		this.V = v;
+		matrix = new int[V][V];
+	}
+	
+	static void addedge(int a, int b)
+	{
+		matrix[a-1][b-1] = 1;//-1 is used as the index starts from 0.
+		matrix[b-1][a-1] = 1;//since it is undirected graph.
+	}
+	static void printgraph()
+	{
+		for(int i = 0; i < V; i++)
+		{
+			for(int j = 0; j < V; j++)
+			{
+				System.out.print(matrix[i][j]+ " ");
+			}
+			System.out.println();
+		}
+	}
+	public static void main(String args[])
+	{
+		adjmatgraph s1 = new adjmatgraph(5);
+		s1.addedge(1,2);
+		s1.addedge(2,3);
+		s1.addedge(3,4);
+		s1.printgraph();
+	}
+}
