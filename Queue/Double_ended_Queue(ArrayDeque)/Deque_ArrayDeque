@@ -1,0 +1,122 @@
+import java.util.*;
+import java.util.Deque;
+import java.util.ArrayDeque;
+public class deque_arrdeque
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		Deque<Integer> d1 = new ArrayDeque<>();
+		int flag = 0;
+		while(flag != 17)
+		{
+			System.out.println("\n1.addfirst\n2.addlast\n3.offerfirst\n4.offerlast\n5.getfirst\n6.getlast\n7.peekfirst\n8.peeklast\n9.removefirst\n10.removelast\n11.pollfirst\n12.polllast\n13.display\n14.push\n15.pop\n16.peek\n17.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+				    System.out.println("Enter element to add at start:");
+					int val = s.nextInt();
+					d1.addFirst(val);
+					break;
+				}
+				case 2:
+				{
+				    System.out.println("Enter element to add at end:");
+					int val = s.nextInt();
+					d1.addLast(val);
+					break;
+				}
+				
+				case 3:
+				{
+					System.out.println("Enter element to offer at start :");
+					int val = s.nextInt();
+					d1.offerFirst(val);
+					break;
+				}
+				case 4:
+				{
+					System.out.println("Enter element to offer at Last :");
+					int val = s.nextInt();
+					d1.offerLast(val);
+					break;
+				}
+				case 5:
+				{
+					System.out.println("head in queue " + d1.getFirst());
+					break;
+				}
+				case 6:
+				{
+					System.out.println("tail in queue " + d1.getLast());
+					break;
+				}
+				case 7:
+				{
+					System.out.println("head in queue " + d1.peekFirst());
+					break;
+				}
+				case 8:
+				{
+					System.out.println("tail in queue " + d1.peekLast());
+					break;
+				}
+				case 9:
+				{
+					System.out.println("head in queue which is removed " + d1.removeFirst());
+					break;
+				}
+				case 10:
+				{
+					System.out.println("tail in queue which is removed" + d1.removeLast());
+					break;
+				}
+				case 11:
+				{
+					System.out.println("head in queue which is removed" + d1.pollFirst());
+					break;
+				}
+				case 12:
+				{
+					System.out.println("tail in queue which is removed" + d1.pollLast());
+					break;
+				}
+				case 13:
+				{
+					System.out.println("Elements of queue are" + d1);
+					break;
+				}
+				case 14:
+				{
+					System.out.println("Enter value to be pushed :");
+					int y = s.nextInt();
+					d1.push(y);//add at beginning
+					System.out.println(y + "is pushed into queue");
+					break;
+				}
+				case 15:
+				{
+					System.out.println(d1.pop() + " is popped from queue");//popped from beginning.
+					break;
+				}
+				case 16:
+				{
+					System.out.println(d1.peek() + " is the front of queue");//returns top of queue.
+					break;
+				}
+				case 17:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
