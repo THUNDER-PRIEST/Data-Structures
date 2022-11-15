@@ -1,0 +1,196 @@
+import java.util.*;
+class node
+{
+	int data;
+	node next;
+	node prev;
+	node(int val)
+	{
+		this.data = val;
+		this.next = null;
+		this.prev = null;
+	}
+}
+public class double_listcircular1
+{
+	static node head = null;
+	static node tail = null;
+	static Scanner s = new Scanner(System.in);
+	static void addnode(int val)
+	{
+		node n1 = new node(val);
+		
+		if(head == null)
+		{
+			head = n1;
+			tail = n1;
+		}
+		else
+		{
+			tail.next = n1;
+			n1.prev = tail;
+			tail = n1;
+			tail.next = head;
+		}
+		
+	}
+	static void add_start(int val)
+	{
+		node n1 = new node(val);
+		
+		if(head == null)
+		{
+			head = n1;
+			tail = n1;
+		}
+		else
+		{
+			n1.next = head;
+			head.prev = n1;
+			head = n1;
+			tail.next = head;
+		}
+	}
+	static void add_pos(int pos)
+	{
+		System.out.println("Enter element to insert at postion ");
+		int val1 = s.nextInt();
+		node temp;
+		temp = head;
+		while(pos-1 > 0)
+		{
+			temp = temp.next;
+			pos--;
+		}
+		node n1 = new node(val1);
+		n1.next = temp.next;
+		temp.next.prev = n1;
+		n1.prev = temp;
+		temp.next = n1;
+	}
+	static void delete_start()
+	{
+		head = head.next;
+		head.prev = tail;
+		tail.next = head;
+	}
+	static void delete_end()
+	{
+		tail = tail.prev;
+		tail.next = head;
+		head.prev = tail;
+	}
+	static void delete_npos(int pos)
+	{
+		node temp;
+		temp = head;
+		while(pos-2 > 0)
+		{
+			temp = temp.next;
+			pos--;
+		}
+		temp.next = temp.next.next;
+		temp.next.prev = temp;
+	}
+	static void traversing()
+	{
+		node temp = head;
+		do
+		{
+			System.out.println(temp.data);
+			temp = temp.next;
+		}
+		while(temp != head);
+	}
+	static void search(int val)
+	{
+		node temp = head;
+		int rep = 0;
+		do
+		{
+			if(temp.data == val)
+			{
+				System.out.println("Element found !!!");
+				rep = 1;
+			}
+			temp = temp.next;
+		}
+		while(temp != head);
+		if(rep == 0)
+			System.out.println("Element not found!!!");
+		
+	}
+	public static void main(String args[])
+	{
+		int flag = 0;
+		while(flag != 9)
+		{
+			System.out.println("\n1.addnode(add_last)\n2.add_start\n3.add_npos\n4.delete_start\n5.delete_end\n6.delete_npos\n7.Traversing\n8.searching\n9.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+			    case 1:
+			    {
+					System.out.println("Enter value of node :");
+					int val = s.nextInt();
+					addnode(val);
+					break;
+				}
+				case 2:
+				{
+					System.out.println("Enter element value :");
+					int vl = s.nextInt();
+					add_start(vl);
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Enter the position to insert node :");
+					int v2 = s.nextInt();
+					add_pos(v2);
+					break;
+				}
+				case 4:
+				{
+					delete_start();
+					break;
+				}
+				case 5:
+				{
+					delete_end();
+					break;
+				}
+				case 6:
+				{
+					System.out.println("Enter postion to remove node :");
+					int v3 = s.nextInt();
+					delete_npos(v3);
+					break;
+				}
+				case 7:
+				{
+					System.out.println("The elements of doubly linked list :");
+					traversing();
+					break;
+				}
+				case 8:
+				{
+					System.out.println("Enter element to search :");
+					int v4 = s.nextInt();
+					search(v4);
+					break;
+				}
+				case 9:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
