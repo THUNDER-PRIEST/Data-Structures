@@ -1,0 +1,66 @@
+import java.util.Stack;
+import java.util.*;
+public class stackclass
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		Stack<Integer> s1 = new Stack<Integer>();
+		int flag = 0;
+		while(flag != 7)
+		{
+			System.out.println("\n1.push\n2.pop\n3.peek\n4.search\n5.empty\n6.display\n7.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+				    System.out.println("Enter element to push :");
+					int val = s.nextInt();
+					s1.push(val);
+					break;
+				}
+				case 2:
+				{
+					int val = s1.peek();
+					s1.pop();
+					System.out.println(val + " is popped from stack");
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Top element in stack " + s1.peek());
+					break;
+				}
+				case 4:
+				{
+					System.out.println("Enter the element to search :");
+					int val1 = s.nextInt();
+					System.out.println("The position of the element is :" + s1.search(val1));
+					break;
+				}
+				case 5:
+				{
+					System.out.println(s1.empty());
+					break;
+				}
+				case 6:
+				{
+					System.out.println("Elements in stack : " + s1);
+					break;
+				}
+				case 7:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
+		
