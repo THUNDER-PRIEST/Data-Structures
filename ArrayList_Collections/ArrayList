@@ -1,0 +1,155 @@
+import java.util.*;
+public class Arraylist_collec
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		ArrayList<Integer> a1 = new ArrayList<Integer>();
+		int flag = 0;
+		while(flag != 18)
+		{
+			System.out.println("\n1. Add element at index \n2. Add element at end of Arraylist \n3. replace element at index \n4. add arraylist at end \n5. convert to array \n6.Get element at index \n7. Arraylist empty? \n8. index of last appearance of element \n9. check if element exist in list \n10. get first appearance index of element \n11.Remove element at index \n12. Remove element(ONLY FOR STRING) \n13.Remove arraylist from other \n14.Remove element in a range(Needs modification / changes) \n15. size of arraylist \n16. sort the arraylist \n17. display arraylist \n18. Exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+					System.out.println("Enter the element to add to arraylist :");
+					int v1 = s.nextInt();
+					System.out.println("Enter the index :");
+					int v2 = s.nextInt();
+					a1.add(v2,v1);
+					break;
+				}
+				case 2:
+				{
+					System.out.println("Enter the element to add to arraylist :");
+					int v3 = s.nextInt();
+					a1.add(v3);
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Enter element to replace at index :");
+					int v4 = s.nextInt();
+					System.out.println("Enter the index :");
+					int v5 = s.nextInt();
+					a1.set(v5,v4);
+					break;
+				}
+				case 4:
+				{
+					ArrayList<Integer> a2 = new ArrayList<Integer>();
+					System.out.println("Enter element of new arraylist :");
+					a2.add(s.nextInt());
+					a1.addAll(a2);
+					break;
+				}
+				case 5:
+				{
+					Object ab[] = a1.toArray();
+					System.out.println("The element in array after conversion :");
+					for(int i = 0;i<ab.length; i++)
+					{
+						System.out.println(ab[i]);
+					}
+					break;
+				}
+				case 6:
+				{
+					System.out.println("Enter the index to get :");
+					int v6 = s.nextInt();
+					System.out.println("The element in index is :" + a1.get(v6));
+					break;
+				}
+				case 7:
+				{
+					System.out.println(a1.isEmpty());
+					break;
+				}
+				case 8:
+				{
+					System.out.println("Enter the element to get last appearance index :");
+					int v7 = s.nextInt();
+					System.out.println("The last index of appearance is :" + a1.lastIndexOf(v7));
+					break;
+				}
+				case 9:
+				{
+					System.out.println("Enter the element to check if it exist in arraylist :");
+					int v8 = s.nextInt();
+					System.out.println("The element exists in arraylist :" + a1.contains(v8));
+					break;
+				}
+				case 10:
+				{
+					System.out.println("Enter the element to get the index :");
+					int v9 = s.nextInt();
+					System.out.println("The index of element is: " + a1.indexOf(v9));
+					break;
+				}
+				case 11:
+				{
+					System.out.println("Enter the index to remove :");
+					int v10 = s.nextInt();
+					a1.remove(v10);
+					System.out.println("Element in index is removed.");
+					break;
+				}
+				case 12:
+				{
+					System.out.println("Enter the element to be removed :");
+					int v11 = s.nextInt();
+					a1.remove(v11);
+					System.out.println("The element is removed.");
+					break;
+				}
+				case 13:
+				{
+					ArrayList<Integer> a3 = new ArrayList<Integer>();
+					System.out.println("Enter the element in arraylist :");
+					a3.add(s.nextInt());
+					a1.removeAll(a3);
+					break;
+				}
+				/*case 14:
+				{
+					System.out.println("Enter the range to remove from :");
+					int v12 = s.nextInt();
+					int v13 = s.nextInt();
+					a1.removeRange(v12,v13);
+					break;
+				}*/
+				case 15:
+				{
+					System.out.println("The size of arraylist is :" + a1.size());
+					break;
+				}
+				case 16:
+				{
+					System.out.println("The sorted arraylist is as :");
+					Collections.sort(a1);
+					System.out.println(a1);
+					Collections.reverseOrder(a1);
+					System.out.println(a1);
+					break;
+				}
+				case 17:
+				{
+					System.out.println("The element of arraylist is :" + a1);
+					break;
+				}
+				case 18:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
