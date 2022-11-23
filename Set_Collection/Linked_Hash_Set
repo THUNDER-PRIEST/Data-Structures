@@ -1,0 +1,98 @@
+//stores elements uniquely like hashset and maintains order of insertion , all optional operations and null values are permitted.
+
+import java.util.*;
+public class Linkedhashset1
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		LinkedHashSet<Integer> lhs1 = new LinkedHashSet();  
+		//LinkedHashSet<String> set=new LinkedHashSet(10); here 10 represents the size of hashset with default 0.75 load factor
+		//LinkedHashSet<String> set=new LinkedHashSet(10,0.5); //here the size is 10 and load factor 0.5
+		//LinkedHashSet<String> set=new LinkedHashSet(a); here we are trying to create hashset where elements are taken from another collection (a).
+		int flag = 0;
+		while(flag != 11)
+		{
+			System.out.println("\n1.add\n2.clear\n3.clone\n4.contains\n5.isempty\n6.iterator\n7.remove\n8.size\n9.spiltrator\n10.display\n11.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				
+				case 1:
+				{
+					System.out.println("Enter element to add to Linkedhashset :");
+					lhs1.add(s.nextInt());
+					break;
+				}
+				case 2:
+				{
+					lhs1.clear();
+					System.out.println("The Linkedhashset is cleared");
+					break;
+				}
+				case 3:
+				{
+					LinkedHashSet<Integer> cloneset = new LinkedHashSet<Integer>();  
+                    cloneset = (LinkedHashSet)lhs1.clone();
+					System.out.println("The clone Linkedhashset values are :" + cloneset);
+                    break;					
+					
+				}
+				case 4:
+				{
+					System.out.println("Enter element to search in Linkedhashset :");
+					int h1 = s.nextInt();
+					System.out.println("The element is in Linkedhashset :" + lhs1.contains(h1));
+					break;
+				}
+				case 5:
+				{
+					System.out.println("The Linkedhashset is empty :" + lhs1.isEmpty());
+					break;
+				}
+				case 6:
+				{
+					Iterator<Integer> itr = lhs1.iterator();    
+                    while(itr.hasNext())
+					{    
+                        System.out.println("Elements : "+itr.next());    
+                    }    
+					break;
+				}
+				case 7:
+				{
+					System.out.println("Enter the element to remove :");
+					int h2 = s.nextInt();
+					lhs1.remove(h2);
+					break;
+				}
+				case 8:
+				{
+					System.out.println("The size of Linkedhashset is :" + lhs1.size());
+					break;
+				}
+				case 9:
+				{
+					Spliterator<Integer> x = lhs1.spliterator();
+                    x.forEachRemaining(System.out::println);  
+					break;
+				}
+				case 10:
+				{
+					System.out.println("Elements of Linkedhashset are :" + lhs1);
+					break;
+				}
+				case 11:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
