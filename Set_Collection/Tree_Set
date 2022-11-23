@@ -1,0 +1,222 @@
+//Tree-Set
+//stores only unique elements and also have fast access and retrieve , maintain ascending order, no null values allowed
+/*
+boolean add(E e)	 *
+boolean addAll(Collection<? extends E> c)	*
+E ceiling(E e)	*
+Iterator descendingIterator()	*
+NavigableSet descendingSet()	*
+E floor(E e)	*
+SortedSet headSet(E toElement)	*
+NavigableSet headSet(E toElement, boolean inclusive)	*
+E higher(E e)	*
+Iterator iterator()	*
+E lower(E e)	*
+E pollFirst()	*
+E pollLast()	*
+Spliterator spliterator()	*
+NavigableSet subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)  *	
+SortedSet subSet(E fromElement, E toElement))	*
+SortedSet tailSet(E fromElement)	*
+NavigableSet tailSet(E fromElement, boolean inclusive)	*
+boolean contains(Object o)	*
+boolean isEmpty()	*
+boolean remove(Object o)	*
+void clear()	*
+Object clone()	*
+E first()	*
+E last()	*
+int size()	*
+*/
+import java.util.*;
+public class Tree_set1
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		TreeSet<Integer> ts1 = new TreeSet<Integer>();  
+		int flag = 0;
+		while(flag != 28)
+		{
+			System.out.println("\n1.add\n2.addAll\n3.ceiling\n4.descendingIterator()\n5.descendingset()\n6.floor\n7.sortedset-headset\n8.navigableset-headset\n9.higher\n10.iterator\n11.lower\n12.pollfirst\n13.polllast\n14.spliterator\n15.navigable-subset\n16.sortedset-subset\n17.sortedset-tailset\n18.navigableset-tailset\n19.contains\n20.isEmpty\n21.remove\n22.clear\n23.clone\n24.first\n25.last\n26.size\n27.display\n28.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+					System.out.println("Enter the element to add to treeset :");
+					ts1.add(s.nextInt());
+					break;
+				}
+				case 2:
+				{
+					TreeSet<Integer> ts2 = new TreeSet<Integer>();
+					System.out.println("Enter element value to add to new treeset :");
+					ts2.add(s.nextInt());
+					ts1.addAll(ts2);
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Enter the element to find ceil :");
+					System.out.println("The ceil of treeset is :" + ts1.ceiling(s.nextInt()));
+					break;
+				}
+				case 4:
+				{
+					Iterator i = ts1.descendingIterator();  
+                    while(i.hasNext())  
+                    {  
+                        System.out.println(i.next());  
+                    }  
+					break;
+				}
+				case 5:
+				{
+					System.out.println("Reverse of set: " + ts1.descendingSet());  
+					break;
+				}
+				case 6:
+				{
+					System.out.println("Enter element to find floor :");
+					System.out.println("The floor of treeset is :" + ts1.floor(s.nextInt()));
+					break;
+				}
+				case 7:
+				{
+					System.out.println("sortedset Head Set: "+ ts1.headSet(s.nextInt()));  
+					break;
+				}
+				case 8:
+				{
+					int val1 = s.nextInt();
+					System.out.println("Head Set: " + ts1.headSet(val1, true)); 
+                    break;					
+				}
+				case 9:
+				{
+					System.out.println("Enter the element to find higher :");
+					System.out.println("The higher of treeset :" + ts1.higher(s.nextInt()));
+					break;
+				}
+				case 10:
+				{
+					 Iterator<Integer> itr = ts1.iterator();  
+                     while(itr.hasNext())
+					 {  
+                        System.out.println(itr.next());
+					 }
+					 break;
+			    }
+				case 11:
+				{
+					System.out.println("Enter the element to find lower :");
+					System.out.println("The lower of treeset :" + ts1.lower(s.nextInt()));
+					break;
+				}
+				case 12:
+				{
+					System.out.println("PollFirst :" + ts1.pollFirst());
+					break;
+				}
+				case 13:
+				{
+					System.out.println("PollLast :" + ts1.pollLast());
+					break;
+				}
+				case 14:
+				{
+					Spliterator<Integer> x = ts1.spliterator();
+                    x.forEachRemaining(System.out::println);  
+					break;
+				}
+				case 15:
+				{
+					int val2 = s.nextInt();
+					int val3 = s.nextInt();
+					System.out.println("SubSet: "+ts1.subSet(val2, false, val3, true));  
+					break;
+				}
+				case 16:
+				{
+					int val4 = s.nextInt();
+					int val5 = s.nextInt();
+					System.out.println("SubSet: "+ts1.subSet(val4,val5));
+					break;
+				}
+				case 17:
+				{
+					int val6 = s.nextInt();
+					System.out.println("TailSet: "+ts1.tailSet(val6));  
+					break;
+				}
+			    case 18:
+				{
+					int val7 = s.nextInt();
+					System.out.println("TailSet: "+ts1.tailSet(val7, false));  
+					break;
+				}
+				case 19:
+				{
+					System.out.println("Enter element value to check its existence :");
+					System.out.println("The element exists in treeset :" + ts1.contains(s.nextInt()));
+					break;
+				}
+				case 20:
+				{
+					System.out.println("The treeset is empty :" + ts1.isEmpty());
+					break;
+				}
+				case 21:
+				{
+					System.out.println("Enter element to remove from treeset :");
+					ts1.remove(s.nextInt());
+					break;
+				}
+				case 22:
+				{
+					ts1.clear();
+					System.out.println("The treeset is cleared.");
+					break;
+				}
+				case 23:
+				{
+					TreeSet<Integer> ts3 = new TreeSet<Integer>();    
+                    ts3 = (TreeSet)ts1.clone();
+					System.out.println("The clone Treeset values are :" + ts3);
+					break;
+				}
+				case 24:
+				{
+					System.out.println("The first element of treeset is :" + ts1.first());
+					break;
+				}
+				case 25:
+				{
+					System.out.println("The last element of treeset is :" + ts1.last());
+					break;
+				}
+				case 26:
+				{
+					System.out.println("The size of treeset is : " + ts1.size());
+					break;
+				}
+				case 27:
+				{
+					System.out.println("The element of treeset is " + ts1);
+					break;
+				}
+				case 28:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
