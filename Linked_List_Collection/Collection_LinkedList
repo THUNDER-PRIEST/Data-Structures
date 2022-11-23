@@ -1,0 +1,268 @@
+import java.util.*;
+public class Linkedlist_collec
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		LinkedList<Integer> a1 = new LinkedList<Integer>();
+		int flag = 0;
+		while(flag != 38)
+		{
+			System.out.println("\n1. Add element at index \n2. Add element at end of Arraylist \n3. replace element at index \n4. add arraylist at end \n5. convert to array \n6.Get element at index \n7. sort \n8. index of last appearance of element \n9. check if element exist in list \n10. get first appearance index of element \n11.Remove element at index \n12. Remove element(ONLY FOR STRING) \n13.Remove arraylist from other \n14.Remove element in a range(Needs modification / changes) \n15. size of arraylist \n16. sort the arraylist(Reverse) \n17. display arraylist \n18. AddFirst \n19. AddLast \n20. Get first element in Linked list \n21.Getfirst \n22.Getlast \n23.Offer \n24.offerfirst \n25.offerlast \n26.peek \n27. peekfirst \n28.peeklast \n29.poll \n30.pollfirst \n31.polllast \n32.pop \n33.push \n34.removefirst \n35.removefirstoccurance \n36.removelast \n37.removelastoccurance \n38. exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+					System.out.println("Enter the element to add to arraylist :");
+					int v1 = s.nextInt();
+					System.out.println("Enter the index :");
+					int v2 = s.nextInt();
+					a1.add(v2,v1);
+					break;
+				}
+				case 2:
+				{
+					System.out.println("Enter the element to add to arraylist :");
+					int v3 = s.nextInt();
+					a1.add(v3);
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Enter element to replace at index :");
+					int v4 = s.nextInt();
+					System.out.println("Enter the index :");
+					int v5 = s.nextInt();
+					a1.set(v5,v4);
+					break;
+				}
+				case 4:
+				{
+					ArrayList<Integer> a2 = new ArrayList<Integer>();
+					System.out.println("Enter element of new arraylist :");
+					a2.add(s.nextInt());
+					a1.addAll(a2);
+					break;
+				}
+				case 5:
+				{
+					Object ab[] = a1.toArray();
+					System.out.println("The element in array after conversion :");
+					for(int i = 0;i<ab.length; i++)
+					{
+						System.out.println(ab[i]);
+					}
+					break;
+				}
+				case 6:
+				{
+					System.out.println("Enter the index to get :");
+					int v6 = s.nextInt();
+					System.out.println("The element in index is :" + a1.get(v6));
+					break;
+				}
+				case 7:
+				{
+					Collections.sort(a1);
+					System.out.println("The sorted linkedlist is :" + a1);
+				}
+				case 8:
+				{
+					System.out.println("Enter the element to get last appearance index :");
+					int v7 = s.nextInt();
+					System.out.println("The last index of appearance is :" + a1.lastIndexOf(v7));
+					break;
+				}
+				case 9:
+				{
+					System.out.println("Enter the element to check if it exist in arraylist :");
+					int v8 = s.nextInt();
+					System.out.println("The element exists in arraylist :" + a1.contains(v8));
+					break;
+				}
+				case 10:
+				{
+					System.out.println("Enter the element to get the index :");
+					int v9 = s.nextInt();
+					System.out.println("The index of element is: " + a1.indexOf(v9));
+					break;
+				}
+				case 11:
+				{
+					System.out.println("Enter the index to remove :");
+					int v10 = s.nextInt();
+					a1.remove(v10);
+					System.out.println("Element in index is removed.");
+					break;
+				}
+				case 12:
+				{
+					System.out.println("Enter the element to be removed :");
+					int v11 = s.nextInt();
+					a1.remove(v11);
+					System.out.println("The element is removed.");
+					break;
+				}
+				case 13:
+				{
+					ArrayList<Integer> a3 = new ArrayList<Integer>();
+					System.out.println("Enter the element in arraylist :");
+					a3.add(s.nextInt());
+					a1.removeAll(a3);
+					break;
+				}
+				/*case 14:
+				{
+					System.out.println("Enter the range to remove from :");
+					int v12 = s.nextInt();
+					int v13 = s.nextInt();
+					a1.removeRange(v12,v13);
+					break;
+				}*/
+				case 15:
+				{
+					System.out.println("The size of arraylist is :" + a1.size());
+					break;
+				}
+				case 16:
+				{
+					Object aa[] = a1.toArray();
+					System.out.println("Element of linkedlist in reverseorder :" );
+					for(int i = aa.length-1; i > 0; i--)
+					{
+						System.out.println(aa[i]);
+					}
+					break;
+				}
+				case 17:
+				{
+					System.out.println("The element of linkedlist is :" + a1);
+					break;
+				}
+				case 18:
+				{
+					System.out.println("Enter element to add at start :");
+					int v14 = s.nextInt();
+					a1.addFirst(v14);
+					break;
+				}
+				case 19:
+				{
+					System.out.println("Enter element to add at last of list :");
+					int v15 = s.nextInt();
+					a1.addLast(v15);
+					break;
+				}
+				case 20:
+				{
+					System.out.println("The first element of linkedlist :" + a1.element());
+					break;
+				}
+				case 21:
+				{
+					System.out.println("The first element of linkedlist :" + a1.getFirst());
+					break;
+				}
+				case 22:
+				{
+					System.out.println("The last element of linkedlist :" + a1.getLast());
+					break;
+				}
+				case 23:
+				{
+					System.out.println("Enter element to add at end of linkedlist :");
+					a1.offer(s.nextInt());
+					break;
+				}
+				case 24:
+				{
+					System.out.println("Enter element to add at start of linkedlist :");
+					a1.offerFirst(s.nextInt());
+					break;
+				}
+				case 25:
+				{
+					System.out.println("Enter element to add at end of linkedlist :");
+					a1.offerLast(s.nextInt());
+					break;
+				}
+				case 26:
+				{
+					System.out.println(a1.peek());
+					break;
+				}
+				case 27:
+				{
+					System.out.println(a1.peekFirst());
+					break;
+				}
+				case 28:
+				{
+					System.out.println(a1.peekLast());
+					break;
+				}
+				case 29:
+				{
+					System.out.println(a1.poll());
+					break;
+				}
+				case 30:
+				{
+					System.out.println(a1.pollFirst());
+					break;
+				}
+				case 31:
+				{
+					System.out.println(a1.pollLast());
+					break;
+				}
+				case 32:
+				{
+					System.out.println(a1.peek());
+					a1.pop();
+					break;
+				}
+				case 33:
+				{
+					System.out.println("Enter element to push into linkedlist :");
+					int v16 = s.nextInt();
+					a1.push(v16);
+					break;
+				}
+				case 34:
+				{
+					System.out.println(a1.removeFirst());
+					break;
+				}
+				case 35:
+				{
+					System.out.println("Enter element to remove its first occurance :");
+					a1.removeFirstOccurrence(s.nextInt());
+					break;
+				}
+				case 36:
+				{
+					System.out.println(a1.removeLast());
+					break;
+				}
+				case 37:
+				{
+					System.out.println("Enter element to remove its last occurance :");
+					a1.removeLastOccurrence(s.nextInt());
+					break;
+				}
+				case 38:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
