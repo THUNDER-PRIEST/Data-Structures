@@ -1,0 +1,206 @@
+import java.util.*;
+public class Hash_map1
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		HashMap<Integer,Integer> hm1 = new HashMap<Integer,Integer>();
+		int flag = 0;
+		while(flag != 27)
+		{
+			System.out.println("\n1.clear\n2.isEmpty\n3.clone\n4.entryset\n5.keysey\n6.put\n7.putAll\n8.putIfAbsent\n9.remove\n10.remove pair\n11.compute\n12.computeIfAbsent\n13.computeIfPresent\n14.containsValue\n15.containsKey\n16.equals\n17.foreach\n18.get\n19.getOrDefault\n20.merge\n21.replace\n22.replace\n23.replaceAll\n24.values\n25.size\n26.display\n27.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+					hm1.clear();
+					System.out.println("The hashmap is cleared, ");
+					break;
+				}
+				case 2:
+				{
+					System.out.println("The hashmap is empty : " + hm1.isEmpty());
+					break;
+				}
+				case 3:
+				{
+					System.out.println(hm1.clone());
+				}
+				case 4:
+				{
+					System.out.println(hm1.entrySet());
+					break;
+				}
+				case 5:
+				{
+					System.out.println(hm1.keySet());
+					break;
+				}
+				case 6:
+				{
+					System.out.println("Enter key :");
+					int a1 = s.nextInt();
+					System.out.println("Enter value :");
+					int a2 = s.nextInt();
+					hm1.put(a1,a2);
+					break;
+				}
+				case 7:
+				{
+					HashMap<Integer,Integer> hm2 = new HashMap<Integer,Integer>();
+					System.out.println("Enter key :");
+					int a3 = s.nextInt();
+					System.out.println("Enter value :");
+					int a4 = s.nextInt();
+					hm2.put(a3,a4);
+					hm1.putAll(hm2);
+					break;
+				}
+				case 8:
+				{
+					System.out.println("Enter key :");
+					int a5 = s.nextInt();
+					System.out.println("Enter value :");
+					int a6 = s.nextInt();
+					hm1.putIfAbsent(a5,a6);
+					break;
+				}
+				case 9:
+				{
+					System.out.println("Enter key to remove from hashmap :");
+					hm1.remove(s.nextInt());
+					break;
+				}
+				case 10:
+				{
+					System.out.println("Enter key :");
+					int a7 = s.nextInt();
+					System.out.println("Enter value :");
+					int a8 = s.nextInt();
+					hm1.remove(a7,a8);
+					break;
+				}
+				case 11:
+				{
+					System.out.println("Enter key to compute :");
+					int a9 = s.nextInt();
+					int new1 = hm1.compute(a9, (key, value) -> (value + 100));
+                    System.out.println("computed value : " + new1);
+					break;
+				}
+				case 12:
+				{
+					System.out.println("Enter key to compute :");
+					int a10 = s.nextInt();
+					int new2 = hm1.computeIfAbsent(a10, key -> 280);
+                    System.out.println("updated value " + new2);
+					break;
+				}
+				case 13:
+				{
+					System.out.println("Enter key to compute :");
+					int a11 = s.nextInt();
+					int new3 = hm1.computeIfPresent(a11, (key, value) -> value + 100);
+                    System.out.println("updated value " + new3);
+					break;
+				}
+				case 14:
+				{
+					System.out.println("Enter value to check if exists :");
+					System.out.println(hm1.containsValue(s.nextInt()));
+					break;
+				}
+				case 15:
+				{
+					System.out.println("Enter key to check :");
+					System.out.println(hm1.containsKey(s.nextInt()));
+					break;
+				}
+				case 16:
+				{
+					System.out.println("Enter value :");
+					System.out.println("The value in hashmap :" + hm1.equals(s.nextInt()));
+					break;
+				}
+				case 17:
+				{
+					hm1.forEach((key, value) -> 
+					{
+                        value = value + 100;
+                    });
+					break;
+				}
+				case 18:
+				{
+					System.out.println("Enter the key to get :");
+					System.out.println("The value of key is :" + hm1.get(s.nextInt()));
+					break;
+				}
+				case 19:
+				{
+					System.out.println("Enter the key to get default value :");
+					int value1 = hm1.getOrDefault(s.nextInt(), 0);
+                    System.out.println("Value for key :  " + value1);
+					break;
+				}
+				case 20:
+				{
+					System.out.println("Enter the key to get :");
+					int value2 = hm1.merge(s.nextInt(), 100, (oldValue, newValue) -> oldValue + newValue);
+					break;
+				}
+				case 21:
+				{
+					System.out.println("Enter key :");
+					int a12 = s.nextInt();
+					System.out.println("Enter value :");
+					int a13 = s.nextInt();
+					hm1.replace(a12, a13);
+					break;
+				}
+				case 22:
+				{
+					System.out.println("Enter key :");
+					int a14 = s.nextInt();
+					System.out.println("Enter old value :");
+					int a15 = s.nextInt();
+					System.out.println("Enter new value :");
+					int a16 = s.nextInt();
+					hm1.replace(a14, a15,a16);
+					break;
+				}
+				case 23:
+				{
+					hm1.replaceAll((key, value) -> (key*key));;
+					break;
+				}
+				case 24:
+				{
+					System.out.println(hm1.values());
+					break;
+				}
+				case 25:
+				{
+					System.out.println("The size of hashMap is : " + hm1.size());
+					break;
+				}
+				case 26:
+				{
+					System.out.println("The elements of hashmap are :" + hm1);
+					break;
+				}
+				case 27:
+				{
+					System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
