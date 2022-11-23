@@ -1,0 +1,99 @@
+//stores elements using hash - only unique elements - null values allowed - initial size 16 load factor 0.75 - best for search operation - no order of insertion but based on hashcode.
+
+
+import java.util.*;
+public class Hash_set1
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		HashSet<Integer> hs1=new HashSet();  //define hashset basic
+		//HashSet<String> set=new HashSet(10); here 10 represents the size of hashset with default 0.75 load factor
+		//HashSet<String> set=new HashSet(10,0.5); //here the size is 10 and load factor 0.5
+		//HashSet<String> set=new HashSet(a); here we are trying to create hashset where elements are taken from another collection (a).
+		int flag = 0;
+		while(flag != 11)
+		{
+			System.out.println("\n1.add\n2.clear\n3.clone\n4.contains\n5.isempty\n6.iterator\n7.remove\n8.size\n9.spiltrator\n10.display\n11.exit");
+			flag = s.nextInt();
+			switch(flag)
+			{
+				case 1:
+				{
+					System.out.println("Enter element to add to hashset :");
+					hs1.add(s.nextInt());
+					break;
+				}
+				case 2:
+				{
+					hs1.clear();
+					System.out.println("The hashset is cleared");
+					break;
+				}
+				case 3:
+				{
+					HashSet<Integer> cloneset = new HashSet<Integer>();  
+                    cloneset = (HashSet)hs1.clone();
+					System.out.println("The clone hashset values are :" + cloneset);
+                    break;					
+					
+				}
+				case 4:
+				{
+					System.out.println("Enter element to search in hashset :");
+					int h1 = s.nextInt();
+					System.out.println("The element is in hashset :" + hs1.contains(h1));
+					break;
+				}
+				case 5:
+				{
+					System.out.println("The hashset is empty :" + hs1.isEmpty());
+					break;
+				}
+				case 6:
+				{
+					Iterator<Integer> itr = hs1.iterator();    
+                    while(itr.hasNext())
+					{    
+                        System.out.println("Elements : "+itr.next());    
+                    }    
+					break;
+				}
+				case 7:
+				{
+					System.out.println("Enter the element to remove :");
+					int h2 = s.nextInt();
+					hs1.remove(h2);
+					break;
+				}
+				case 8:
+				{
+					System.out.println("The size of hashset is :" + hs1.size());
+					break;
+				}
+				case 9:
+				{
+					Spliterator<Integer> x = hs1.spliterator();
+                    x.forEachRemaining(System.out::println);  
+					break;
+				}
+				case 10:
+				{
+					System.out.println("Elements of hashset are :" + hs1);
+					break;
+				}
+				case 11:   
+                {  
+                    System.out.println("Terminating the program....");  
+                    System.exit(0);  
+                    break;   
+                }  
+				default:
+				{
+					System.out.println("Enter valid choice");
+				}
+			}
+		}
+	}
+}
+					
